@@ -1,7 +1,7 @@
 body{margin:0;padding: 0;}
 
 /* navbar */
-.navbar {
+#navbar {
 	position: fixed;
 	left: 0;
 	right: 0;
@@ -13,7 +13,7 @@ body{margin:0;padding: 0;}
 	background-color: #343a40;
 	opacity: 0.8;
     filter: alpha(opacity=80);
-	/*overflow: hidden;*/
+	overflow: hidden;
 }
 
 #buttons {
@@ -28,6 +28,12 @@ body{margin:0;padding: 0;}
 	display: inline-block;
 	width: 108px;
 	height: 60px;
+	
+}
+
+#logo:hover {
+	opacity: 0.7;
+    filter: alpha(opacity=70);
 }
 
 #list {
@@ -76,8 +82,22 @@ body{margin:0;padding: 0;}
 	float: right;
 }
 
+#collapsor:hover {
+	background-color: #343a40;
+	color: #DCDCDC;
+	opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+
 @media screen and (max-width: 600px) {
+	#collapsor {
+		display: inline-block;
+		position: fixed;
+		top: 0;
+		right: 0;
+	}
 	#buttons {
+		padding-top: 10px;
 		width: 100%;
 	}
 	#list {
@@ -89,15 +109,6 @@ body{margin:0;padding: 0;}
 	}
 	#list>li>a {
 		text-align: left;
-	}
-	.navbar {
-		height: 350px;
-	}
-	#collapsor {
-		display: inline-block;
-		position: fixed;
-		top: 0;
-		right: 0;
 	}
 }
 
