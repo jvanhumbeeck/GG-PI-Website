@@ -1,4 +1,4 @@
-body{margin:0;padding: 0;}
+body{margin:0;padding: 0;z-index: 1;}
 
 /* navbar */
 #navbar {
@@ -14,6 +14,7 @@ body{margin:0;padding: 0;}
 	opacity: 0.8;
     filter: alpha(opacity=80);
 	overflow: hidden;
+	z-index: 9;
 }
 
 #buttons {
@@ -110,6 +111,74 @@ body{margin:0;padding: 0;}
 	#list>li>a {
 		text-align: left;
 	}
+}
+
+/* carousel */
+#carousel {
+	overflow: hidden;
+	position: relative;
+}
+
+.slide {
+	display: none;
+	overflow: hidden;
+	width: 100%;
+	position: relative;
+}
+
+.slide img {
+	width: 100%;
+}
+
+.holder {
+	display: inline-block;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+}
+
+.holder h1 { /* font title */
+	color: #007f00;
+	font-size: 2.5em;
+}
+
+.holder p { /* font subTitle */ 
+	color: #b20000;
+	font-size: 1.5em;
+}
+
+#bholder {
+	display: inline-block;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	
+}
+
+#bholder button {
+	width: 25%;
+	background-color: transparent;
+	border: none;
+	position: relative;
+    top: 0;
+    font-size: 30px;
+	color: #3b1261;
+}
+
+#bholder button:hover {
+	background-color: rgba(128, 128, 128, 0.2);
+}
+
+#lbutton {
+	float: left;
+}
+
+#rbutton {
+	float: right;
 }
 
 /* colloms */
