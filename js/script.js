@@ -3,6 +3,8 @@ var i = 0;
 var t = true;
 var id = setTimeout(carousel, 3000, 1);
 
+floater();
+
 /* onload event */
 window.addEventListener("load", function(){
 	fixButton();
@@ -25,7 +27,7 @@ window.addEventListener("load", function(){
 });
 
 /* navbar collapse script */
-document.getElementById("collapsor").onclick = function() {
+document.getElementById("collapsor").addEventListener("click", function() {
 	
 	var navbar = document.getElementById("navbar");
 	var state = navbar.getAttribute("state");
@@ -38,7 +40,7 @@ document.getElementById("collapsor").onclick = function() {
 		navbar.setAttribute("state", "true");
 	}
 	
-};
+});
 
 /* resize event for navbar recollapse at pixels */
 window.addEventListener("resize", function() {
@@ -53,6 +55,70 @@ window.addEventListener("resize", function() {
 		navbar.setAttribute("state", "false");
 	}
 });
+
+/* who floater event */
+const e_start = -95;
+const l_start = 0;
+const dest_e = 0;
+const dest_l = -95;
+const interval = 2.5;
+var hover = 0;
+
+function floater(){
+	var imgs = document.getElementsByClassName("floater");
+	
+	for(var j = 0; j < imgs.length; j++){
+		
+		imgs[j].addEventListener("mouseenter", function(){
+			
+			var bio = this.getElementsByClassName("bio")[0];
+			if(bio.style.right == null){
+				bioFloat(bio, 0, dest_e, e_start);
+			}else{
+				bioFloat(bio, 1, dest_e, e_start);
+			}
+			
+		});
+		
+		imgs[j].addEventListener("mouseleave", function(){
+			
+			var bio = this.getElementsByClassName("bio")[0];
+			if(bio.style.right == null){
+				bioFloat(bio, 0, dest_l, l_start);
+			}else{
+				bioFloat(bio, 1, dest_l, l_start);
+			}
+			
+		});
+	}
+}
+
+function bioFloat(img, direction , end, x){
+	
+	
+	
+	if((x == end)) {
+		// stop
+		
+	}else{
+		
+		if(end < 0){
+			x -= interval;
+	    }else{
+			x += interval;
+		}
+		
+		if(direction == 1){
+			img.style.right = x + "%";
+		}else{
+			img.style.left = x + "%";
+		}
+		
+		hover = setTimeout(bioFloat, 22, img, direction, end, x);
+		
+	}
+	
+}
 
 /* carousel */ /* for max height 100%; && titles */
 function fixImage() {

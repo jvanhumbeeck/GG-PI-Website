@@ -90,29 +90,6 @@ body{margin:0;padding: 0;z-index: 1;}
     filter: alpha(opacity=80);
 }
 
-@media screen and (max-width: 600px) {
-	#collapsor {
-		display: inline-block;
-		position: fixed;
-		top: 0;
-		right: 0;
-	}
-	#buttons {
-		padding-top: 10px;
-		width: 100%;
-	}
-	#list {
-		width: 100%;
-		float: left;
-	}
-	#list>li {
-		width: 100%;
-	}
-	#list>li>a {
-		text-align: left;
-	}
-}
-
 /* carousel */
 #carousel {
 	overflow: hidden;
@@ -182,4 +159,106 @@ body{margin:0;padding: 0;z-index: 1;}
 }
 
 /* colloms */
+.container {
+	width: 80%;
+	padding: 0px 11%;
+}
+
+.column {
+	display: inline-block;
+	width: 26%;
+}
+
+.title {
+	margin-top: 100px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    color: #333;
+	font-size: 2rem;
+}
+
+.subtitle {
+	color: #545454;
+	font-size: 1.25rem;
+    font-weight: 300;
+}
+
+/* biografie */
+.person {
+	position: relative;
+	background-color: #32cd32;
+	width: 300px;
+	border: 3px outset lightgrey;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.person h1 {
+	text-align: center;
+	color: white;
+	margin: 5px;
+}
+
+.floater {
+	position: relative;
+	width: 300px;
+	height: 300px;
+}
+
+.floater img {
+	width: 100%;
+	height: 100%;
+}
+
+.bio {
+	position: absolute;
+	right: -95%;
+	bottom: 5%;
+	width: 95%;
+	height: 90%;
+	background-color: rgba(105, 105, 105, 0.7);
+	overflow: hidden;
+}
+
+.bio p {
+	margin: 10px;
+	color: #32cd32;
+	font-size: 1.1rem;
+}
+
+/* media queries */
+@media screen and (max-width: 600px) {
+	/* navbar */
+	#collapsor {
+		display: inline-block;
+		position: fixed;
+		top: 0;
+		right: 0;
+	}
+	#buttons {
+		padding-top: 10px;
+		width: 100%;
+	}
+	#list {
+		width: 100%;
+		float: left;
+	}
+	#list>li {
+		width: 100%;
+	}
+	#list>li>a {
+		text-align: left;
+	}
+	
+	/* column */
+	.container {
+		width: 96%;
+		padding: 0px 2%;
+	}
+
+	.column {
+		display: block;
+		width: 32%;
+	}
+}
 
