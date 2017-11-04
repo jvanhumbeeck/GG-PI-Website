@@ -15,6 +15,11 @@ body{margin:0;padding: 0;z-index: 1;}
     filter: alpha(opacity=80);
 	overflow: hidden;
 	z-index: 9;
+	transition: height 1s;
+    -moz-transition: height 1s;
+    -ms-transition: height 1s;
+    -o-transition: height 1s;
+    -webkit-transition: height 1s;
 }
 
 #buttons {
@@ -160,8 +165,10 @@ body{margin:0;padding: 0;z-index: 1;}
 
 /* colloms */
 .container {
+	display: inline-block;
+	position: relative;
 	width: 80%;
-	padding: 0px 11%;
+	margin: 0px 11%;
 }
 
 .column {
@@ -177,18 +184,68 @@ body{margin:0;padding: 0;z-index: 1;}
 	font-size: 2rem;
 }
 
+.nexttitle {
+	color: #868e96;
+}
+
 .subtitle {
 	color: #545454;
 	font-size: 1.25rem;
     font-weight: 300;
 }
 
+.separator {
+	margin-top: 5rem;
+	margin-bottom: 5rem;
+	border: 0;
+	border-top: 1px solid rgba(0,0,0,.1);
+	box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+}
+
+.wrapper {
+	margin:0 auto;
+	text-align: center;
+}
+
+.picture {
+	max-width: 100%;
+}
+
+.footer {
+	position: relative;
+	padding: 2.5rem 0;
+    color: #999;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-top: .05rem solid #e5e5e5;
+}
+
+#back {
+	position: relative;
+	top: -110px;
+	margin-bottom: -110px;
+	background-color: gray;
+	border: 2px solid #5d6166;
+	color: #33cd3d;
+	font-size: 50px;
+	height: 50px;
+	width: 50px;
+}
+
+#back:hover {
+	background-color: #5d6166;
+	border: 2px solid gray;
+}
+
 /* biografie */
 .person {
-	position: relative;
+	display: inline-block;
 	background-color: #32cd32;
 	width: 300px;
 	border: 3px outset lightgrey;
+	margin: 20px; 
 	overflow: hidden;
 	white-space: nowrap;
 }
@@ -212,12 +269,12 @@ body{margin:0;padding: 0;z-index: 1;}
 
 .bio {
 	position: absolute;
-	right: -95%;
 	bottom: 5%;
 	width: 95%;
 	height: 90%;
 	background-color: rgba(105, 105, 105, 0.7);
 	overflow: hidden;
+	text-align: left;
 }
 
 .bio p {
@@ -253,7 +310,7 @@ body{margin:0;padding: 0;z-index: 1;}
 	/* column */
 	.container {
 		width: 96%;
-		padding: 0px 2%;
+		margin: 0px 2%;
 	}
 
 	.column {
@@ -262,3 +319,13 @@ body{margin:0;padding: 0;z-index: 1;}
 	}
 }
 
+@media screen and (min-width: 800px) {
+	.respp{
+		float: left;
+		width: 70%;
+	}
+	.respi {
+		float: left;
+		width: 30%;
+	}
+}

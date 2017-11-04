@@ -57,8 +57,6 @@ window.addEventListener("resize", function() {
 });
 
 /* who floater event */
-const e_start = -95;
-const l_start = 0;
 const dest_e = 0;
 const dest_l = -95;
 const interval = 2.5;
@@ -72,10 +70,10 @@ function floater(){
 		imgs[j].addEventListener("mouseenter", function(){
 			
 			var bio = this.getElementsByClassName("bio")[0];
-			if(bio.style.right == null){
-				bioFloat(bio, 0, dest_e, e_start);
+			if(!bio.style.right){
+				bioFloat(bio, 0, dest_e, parseFloat(bio.style.left));
 			}else{
-				bioFloat(bio, 1, dest_e, e_start);
+				bioFloat(bio, 1, dest_e, parseFloat(bio.style.right));
 			}
 			
 		});
@@ -83,10 +81,10 @@ function floater(){
 		imgs[j].addEventListener("mouseleave", function(){
 			
 			var bio = this.getElementsByClassName("bio")[0];
-			if(bio.style.right == null){
-				bioFloat(bio, 0, dest_l, l_start);
+			if(!bio.style.right){
+				bioFloat(bio, 0, dest_l, parseFloat(bio.style.left));
 			}else{
-				bioFloat(bio, 1, dest_l, l_start);
+				bioFloat(bio, 1, dest_l, parseFloat(bio.style.right));
 			}
 			
 		});
@@ -99,8 +97,17 @@ function bioFloat(img, direction , end, x){
 	
 	if((x == end)) {
 		// stop
-		
 	}else{
+		
+		if(direction == "1"){
+			if(x != parseFloat(img.style.right)){
+				return;
+			}
+		}else{
+			if(x != parseFloat(img.style.left)){
+				return;
+			}
+		}
 		
 		if(end < 0){
 			x -= interval;
@@ -108,7 +115,7 @@ function bioFloat(img, direction , end, x){
 			x += interval;
 		}
 		
-		if(direction == 1){
+		if(direction == "1"){
 			img.style.right = x + "%";
 		}else{
 			img.style.left = x + "%";
@@ -182,3 +189,22 @@ function carousel(x) {
 		    id = setTimeout(carousel, 3000, 1);
 	    }
 }
+
+/* back to top button with animation */
+
+document.getElementById("back").addEventListener("click", SmoothScrollUp);
+
+var step = 75;
+ var h,t;
+ var y = 0;
+function SmoothScrollUp()
+{
+    h = document.documentElement.scrollHeight;
+    y += step;
+    window.scrollBy(0, -step);
+    if(y >= h )
+      {clearTimeout(t); y = 0; return;}
+    t = setTimeout(function(){SmoothScrollUp()},20);
+};
+
+/* navbar light up witch div look at */
