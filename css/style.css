@@ -342,3 +342,42 @@ body{margin:0;padding: 0;z-index: 1;}
 		width: 30%;
 	}
 }
+
+/* 480 responsive images */
+@media screen and (max-width: 480px) {
+	.smallscreen {
+		display: block;
+	}
+	.mediumscreen {
+		display: none;
+	}
+	.largescreen {
+		display: none;
+	}
+}
+
+/* 720 responsive images */
+@media screen and (min-width: 480px) and (max-width: 1080px) {
+	.smallscreen {
+		display: none;
+	}
+	.mediumscreen {
+		display: block;
+	}
+	.largescreen {
+		display: none;
+	}
+}
+
+/* 1080 responsive images */
+@media screen and (min-width: 1080px) {
+	.smallscreen {
+		display: none;
+	}
+	.mediumscreen {
+		display: none;
+	}
+	.largescreen {
+		display: block;
+	}
+}

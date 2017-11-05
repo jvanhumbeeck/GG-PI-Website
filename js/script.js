@@ -176,7 +176,7 @@ function fixImage() {
 
 function fixButton() {
 	
-	var a = document.getElementsByClassName("slide")[i].getElementsByTagName("img")[0].clientHeight;
+	var a = document.getElementsByClassName("slide")[i].clientHeight;
 	
 	document.getElementById("lbutton").style.height = a + "px";
 	document.getElementById("rbutton").style.height = a + "px";
