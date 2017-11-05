@@ -4,6 +4,7 @@ var t = true;
 var id = setTimeout(carousel, 3000, 1);
 
 floater();
+registerNavbarEvents();
 
 /* onload event */
 window.addEventListener("load", function(){
@@ -25,6 +26,28 @@ window.addEventListener("load", function(){
 	});
 	
 });
+
+/* navbar button pressevent */
+function registerNavbarEvents() {
+	
+	var buttons = document.getElementById("buttons").getElementsByTagName("a");
+	
+	for (var v = 0; v < buttons.length; v++) {
+		
+		if (!buttons[v].getAttribute("href")) {
+			
+			buttons[v].addEventListener("click", function () {
+				
+				var theID = this.id.substring(1);
+				
+				var section = document.getElementById(theID);
+				
+				SmoothScrollUp(section);
+				
+			});
+		}
+	}	
+}
 
 /* navbar collapse script */
 document.getElementById("collapsor").addEventListener("click", function() {
@@ -192,19 +215,104 @@ function carousel(x) {
 
 /* back to top button with animation */
 
-document.getElementById("back").addEventListener("click", SmoothScrollUp);
+const step = 75;
+var h, t;
+var y = 0;
 
-var step = 75;
- var h,t;
- var y = 0;
-function SmoothScrollUp()
+document.getElementById("back").addEventListener("click", function() {
+	
+	var section = document.getElementById("home");
+	
+	SmoothScrollUp(section);
+	
+	// var div = document.getElementById("home");
+	
+	// alert("start");
+	
+	// h = (document.documentElement.scrollHeight - div.scrollHeight); // the space to div
+	
+	// alert(h);
+	
+		// y += step;
+		// window.scrollBy(0, -step);
+		
+		// if(y >= h){y=0;return;}
+		// else{setTimeout(scrollTo, 20, div);}
+	// }else{
+		// y -= step;
+		// window.scrollBy(0, step);
+		// if(y <= h){y=0;return;}
+		// else{setTimeout(scrollTo, 20, div);}
+	// }
+	
+});
+
+const offset = 1/4 * window.innerHeight;
+
+function SmoothScrollUp(section)
 {
-    h = document.documentElement.scrollHeight;
-    y += step;
-    window.scrollBy(0, -step);
-    if(y >= h )
-      {clearTimeout(t); y = 0; return;}
-    t = setTimeout(function(){SmoothScrollUp()},20);
+	// invisible scrolled pixels top == to top of page
+	var scrollTop = document.documentElement.scrollTop;
+	
+	//ofset from top
+	var divFromTop = section.offsetTop;
+	
+	// if(divFromTop != 0){divFromTop = offset}
+	
+	//so the amout for scrolling is = scrollTop - offSet;
+	var toScroll = (scrollTop - divFromTop);
+	
+	if(h == toScroll){/*stop*/clearTimeout(t); y = 0; return;}
+	
+    h = toScroll;
+	
+	//positief
+	if(h > 0) { // naar boven
+		y += step;
+		if(h < step){window.scrollBy(0, -h);}
+		else{window.scrollBy(0, -step);}
+		if(h == 0){clearTimeout(t); y = 0; return;}
+		t = setTimeout(function(){SmoothScrollUp(section)},20);
+	}else{ // naar beneden
+		//negatief
+		y -= step;
+		if(h > -step){window.scrollBy(0, -h);}
+		else{window.scrollBy(0, step);}
+		if(h == 0){clearTimeout(t); y = 0; return;}
+		t = setTimeout(function(){SmoothScrollUp(section)},20);
+	}
 };
 
+window.addEventListener("scroll", detectDiv);
+
 /* navbar light up witch div look at */
+
+function detectDiv() {
+	
+	var divs = document.getElementsByClassName("section");
+	
+	// invisible scrolled pixels top
+	var scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+	
+	for (var k = 0;k < divs.length; k++) {
+		
+		//div position from top
+		var div_pos = divs[k].offsetTop;
+		
+		//div height inc padding scrollbar and borders
+		var div_Height = divs[k].offsetHeight;
+		
+		if ((scrollTop > (div_pos - offset)) && (scrollTop < (div_pos + (div_Height - offset)))) {
+			//divs[k].classList.add("active");
+			var btn = document.getElementById("b" + divs[k].id);
+			btn.classList.add("active");
+			
+		}else{
+			//divs[k].classList.remove("active");
+			var btn = document.getElementById("b" + divs[k].id);
+			btn.classList.remove("active");
+			
+		}
+	}
+	
+}

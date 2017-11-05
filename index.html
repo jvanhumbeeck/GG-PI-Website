@@ -8,10 +8,10 @@
     <title>GG-PI Website</title>
 	
 	<!-- logo -->
-	
+	<link rel="icon" type="image/png" href="assets/favicon.png">
 	
 	<!-- search engine info -->
-	
+	<meta charset="UTF-8">
 	
 	<!-- stylesheets -->
 	<link rel="stylesheet" type="text/css" href="css/style.css" >
@@ -31,11 +31,11 @@
 	  
 	  <!-- buttons -->
 	  <div id="buttons">
-	    <ul id="list">
-		  <li><a href="#home">Home</a></li>
-		  <li><a href="#who">Who</a></li>
-		  <li><a href="#what">What</a></li>
-		  <li><a href="#why">Why</a></li>
+	    <ul class="list">
+		  <li><a id="bhome" class="active">Home</a></li>
+		  <li><a id="bwho">Who</a></li>
+		  <li><a id="bwhat">What</a></li>
+		  <li><a id="bwhy">Why</a></li>
 		  <li><a href="blog.html">Blog</a></li>
 		</ul>
 	  </div>
@@ -49,7 +49,7 @@
 	</div>
 	
 	<!-- home div (carousel, info) -->
-	<div id="home">
+	<div id="home" class="section">
 	  
 	  <!-- carousel -->
 	  <div id="carousel">
@@ -114,17 +114,21 @@
 		</div>
 	  </div>-->
 	  
+	  <!-- spacor -->
+	  <div class="spacor"></div>
+	  
 	</div>
 	
 	<!-- who div -->
-	<div id="who" class="container">
+	<div id="who" class="container section">
 	  
 	  <!-- separater -->
 	  <hr class="separator">
 	  
 	  <!-- text -->
 	  <h1 class="title">Who are we ? <span class="nexttitle">Two idiots.</span></h1>
-	  <p class="subtitle">Two people with two left hands and some common interests. They are going to try to succesfully end this project.</p>
+	  <p class="subtitle">Two people with two left hands and some common interests.</p>
+	  <p class="subtitle">TIP, hover over the images.</p>
 	  
 	  <!-- images -->
 	  <div class="wrapper">
@@ -133,7 +137,7 @@
 		  <div class="floater">
 	        <img src="assets/joris.JPG">
 		    <div class="bio" style="right: -95%;">
-		      <p>biografie</p>
+		      <p>Good day. I'm joris and I love planes and creating things. In this project I hope to learn a lot about programming . My hobby is gliding. That and my curiosity are the reasons why I started this project.</p>
 			  
   		    </div>
 	  	  </div>
@@ -144,7 +148,9 @@
 		  <div class="floater">
 	        <img src="assets/jens.jpg">
 		    <div class="bio" style="left: -95%;">
-		      <p>biografie</p>
+		      <p>Hey, I'm Jens, and I'm responsible for all the programming.
+			   With this project I hope to get a better understanding of electronics. 
+			   As you can see on the picture, as hobby id drive with a dirt bike.</p>
 		    
 		    </div>
 		  </div>
@@ -154,7 +160,7 @@
 	</div>
 	
 	<!-- what div -->
-	<div id="what" class="container">
+	<div id="what" class="container section">
   
 	  <!-- separater -->
 	  <hr class="separator">
@@ -169,14 +175,14 @@
 	</div>
 	
 	<!-- why div -->
-	<div id="why" class="container">
+	<div id="why" class="container section">
 	  
 	  <!-- separater -->
 	  <hr class="separator">
 	  
 	  <!-- text -->
 	  <h1 class="title">Why the hell are we doing this ? <span class="nexttitle">Because we needed to.</span></h1>
-	  <p class="subtitle respp">This project started out for a school course named STEM. The purpose of this project was to do self-study and learn to work in a team. It doesn't even matter if it fails or not.
+	  <p class="subtitle respp">This project started out for a school course named STEM. The purpose of this project was to do self-study and learn to work in teams. It doesn't even matter if it fails or not.
 	  So we had to decide what we would make, because we both low flying, we choose to build a drone. 
 	  We immediately started to dream, but we had to stay realistic. We don't want to fail and how bigger we see it, how more it was doomed to fail.
 	  First, we would do everything ourselves, but it was slightly out of league.
@@ -189,11 +195,10 @@
 	
 	<!-- footer -->
 	<div class="footer">
-	  
-	  <!-- button to top -->
+	  <!-- copyright -->
 	  <p>Copytight gg-pi.tk</p>
 	  
-	  <!-- copyright -->
+	  <!-- button to top -->
 	  <button id="back">&#94;</button>
 	  
 	</div>
