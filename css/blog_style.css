@@ -101,7 +101,7 @@ body{margin:0;padding: 0;z-index: 1;}
 
 /* blog title */
 .header {
-	margin-top: 95px;
+	padding-top: 95px;
 	margin-left: 15px;
 }
 
