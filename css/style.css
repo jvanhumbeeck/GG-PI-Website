@@ -172,7 +172,7 @@ body{margin:0;padding: 0;z-index: 1;}
 	display: inline-block;
 	position: relative;
 	width: 80%;
-	margin: 0px 11%;
+	margin: 0px 10%;
 	margin-bottom: 0px;
 	padding-bottom: 5rem;
 }
@@ -316,6 +316,17 @@ body{margin:0;padding: 0;z-index: 1;}
 	}
 	.list>li>a {
 		text-align: left;
+	}
+	
+	/*carousel */
+	#carousel {
+		margin-top: 80px;
+	}
+	.holder h1 {
+		font-size: 2em;
+	}
+	.holder p {
+		font-size: 1em;
 	}
 	
 	/* column */

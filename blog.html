@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    
+	<!-- title -->
+    <title>GG-PI Website</title>
+	
+	<!-- logo -->
+	<link rel="icon" type="image/png" href="assets/favicon.png">
+	
+	<!-- search engine info -->
+	<meta charset="UTF-8">
+	
+	<!-- stylesheets -->
+	<link rel="stylesheet" type="text/css" href="css/blog_style.css" >
+	
+  </head>
+  
+  <body>
+    
+	<!-- navbar -->
+	<div id="navbar" state="false">
+	  
+	  <!-- logo -->
+	  <a href="#home">
+	    <img id="logo" src="assets/logo.png">
+	  </a>
+	  
+	  <!-- buttons -->
+	  <div id="buttons">
+	    <ul class="list">
+		  <li><a id="bhome" href="index.html">Home</a></li>
+		  <li><a href="blog.html" class="active">Blog</a></li>
+		</ul>
+	  </div>
+	  
+	  <!-- collapse -->
+	  <div id="collapse">
+	    <button id="collapsor">&#9776;</button>
+	  </div>
+	  
+	  
+	</div>
+	
+	<!-- header -->
+	<div id="home" class="header">
+	  <h1>GG-PI blog</h1>
+	  <p>See the progression we have made.</p>
+	</div>
+	
+	<!-- separater -->
+	<hr class="separator">
+	
+	<!-- right side panel -->
+	<div class="sidebar">
+	  <h4>Futur Plans</h4>
+	  <p>Creating a Raspberry PI controlled quadcopter will be our main goal. Other plans are:</p>
+	  <ul>
+        <li>Cactus skeleton frame</li>
+        <li>Flight pilot</li>
+        <li>Led ligths</li>
+		<li>Retractable landing gear</li>
+		<li>Mounted camera</li>
+		<li>An Airsoft gun mount</li>
+		<li>Remote controller</li>
+		<li>Airsoft gun trigger</li>
+		<li>More later</li>
+      </ul>
+	</div>
+	
+	<!-- blog posts -->
+	<div class="posts">
+	  
+	  <!-- separater (for splitting the post section from the sidebar with a screen smaller then 600px) -->
+	  <hr class="separator resp">
+	  
+	  <!-- blog post -->
+	  <div class="post">
+	  
+	    <!-- separater (don't show in the most recent post) -->
+	    <!-- <hr class="separator resp"> -->
+		
+	    <h2>The electrical circuit</h2>
+		<p class="meta">October 17, 2017 <a href="index.html#who">Jens</a></p>
+		<p>This is our electric circuit. We used a program named Fritzing to really show the tech side of our drone. In this sketch everything that is on the tech side is included. Thist makes it easyier to work with as a blueprint for the electrical design of the drone.</p>
+		<img src="assets/fritz.png" alt="looks image"></img>
+	  </div>
+	  
+	  <!-- blog post -->
+	  <div class="post">
+	  
+	    <!-- separater -->
+		<hr class="separator">
+		
+	    <h2>The looks</h2>
+		<p class="meta">October 15, 2017 <a href="index.html#who">Jens</a></p>
+		<p>A fast sketch of how it will looks.</p>
+		<img src="assets/sketch.jpg" alt="looks image"></img>
+	  </div>
+	  
+	</div>
+	
+	<!-- footer -->
+	<div class="footer">
+	  <!-- copyright -->
+	  <p>Copytight gg-pi.tk</p>
+	  
+	  <!-- button to top -->
+	  <button id="back">&#94;</button>
+	  
+	</div>
+	<!-- javascripts -->
+	<script src="js/blog_script.js"></script>
+	
+  </body>
+
+</html>
