@@ -211,6 +211,37 @@ body{margin:0;padding: 0;z-index: 1;}
     overflow: visible;
 }
 
+/* image holder */
+#holder {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	top: 80px;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.9);
+}
+
+#holder button {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 0px 10px;
+	background-color: transparent;
+	border: none;
+	color: gray;
+	font-size: 45px;
+}
+
+#holder img {
+	position: relative;
+	max-width: calc(100% - 70px);
+	margin: 10px;
+	margin-right: 70px;
+	margin-bottom: 90px;
+}
+
 /* footer */
 .footer {
 	display: inline-block;
@@ -270,6 +301,7 @@ body{margin:0;padding: 0;z-index: 1;}
 		display: block;
 		float: none;
 		width: auto;
+		max-width: none;
 		margin: 0px 5%;
 		margin-bottom: 5%;
 	}
@@ -283,4 +315,18 @@ body{margin:0;padding: 0;z-index: 1;}
 	.resp {
 		display: block;
 	}
+}
+
+@media screen and (min-width: 1000px) {
+	/* column */
+	.posts {
+		margin-left: 11.4%;
+		margin-right: 5%;
+		width: 50%;
+	}
+	.sidebar {
+		margin-right: 11.4%;
+		width: 20%;
+	}
+	
 }

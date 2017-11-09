@@ -225,26 +225,6 @@ document.getElementById("back").addEventListener("click", function() {
 	
 	SmoothScrollUp(section);
 	
-	// var div = document.getElementById("home");
-	
-	// alert("start");
-	
-	// h = (document.documentElement.scrollHeight - div.scrollHeight); // the space to div
-	
-	// alert(h);
-	
-		// y += step;
-		// window.scrollBy(0, -step);
-		
-		// if(y >= h){y=0;return;}
-		// else{setTimeout(scrollTo, 20, div);}
-	// }else{
-		// y -= step;
-		// window.scrollBy(0, step);
-		// if(y <= h){y=0;return;}
-		// else{setTimeout(scrollTo, 20, div);}
-	// }
-	
 });
 
 const offset = 1/4 * window.innerHeight;
