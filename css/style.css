@@ -150,9 +150,10 @@ body{margin:0;padding: 0;z-index: 1;}
 	background-color: transparent;
 	border: none;
 	position: relative;
-    top: 0;
-    font-size: 30px;
+    	top: 0;
+    	font-size: 30px;
 	color: #3b1261;
+	outline: 0;
 }
 
 #bholder button:hover {
