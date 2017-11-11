@@ -159,7 +159,10 @@ function fixImage() {
 		var titles = document.getElementsByClassName("holder");
 		
 		for (var i=0; i<titles.length; i++) {
-			titles[i].style.top = "65%";
+			
+			var t = (window.innerHeight/2);
+			
+			titles[i].style.top = (window.innerHeight/2) + "px";
 		}
 	}else{
 		
@@ -227,7 +230,7 @@ document.getElementById("back").addEventListener("click", function() {
 	
 });
 
-const offset = 1/4 * window.innerHeight;
+const offset = 3/8 * window.innerHeight;
 
 function SmoothScrollUp(section)
 {

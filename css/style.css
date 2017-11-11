@@ -132,8 +132,10 @@ body{margin:0;padding: 0;z-index: 1;}
 }
 
 .holder p { /* font subTitle */ 
-	color: #b20000;
+	/* color: #b20000; */
+	color: #0119fc;
 	font-size: 1.5em;
+	padding-bottom: 20px;
 }
 
 #bholder {
@@ -176,7 +178,6 @@ body{margin:0;padding: 0;z-index: 1;}
 	width: 60%;
 	margin: 0px 20%;
 	margin-bottom: 0px;
-	padding-bottom: 5rem;
 }
 
 .column {
@@ -268,6 +269,7 @@ body{margin:0;padding: 0;z-index: 1;}
 }
 
 .separator {
+	margin-top: 5rem;
 	margin-bottom: 7rem;
 	border: 0;
 	border-top: 1px solid rgba(0,0,0,.1);
@@ -287,6 +289,7 @@ body{margin:0;padding: 0;z-index: 1;}
 }
 
 .footer {
+	margin-top: 5rem;
 	position: relative;
 	padding: 2.5rem 0;
     color: #999;
@@ -361,7 +364,7 @@ body{margin:0;padding: 0;z-index: 1;}
 
 .bio p {
 	margin: 10px;
-	color: #32cd32;
+	color: #0df20d;
 	font-size: 1.1rem;
 	white-space: normal;
 }
@@ -399,6 +402,7 @@ body{margin:0;padding: 0;z-index: 1;}
 	}
 	.holder p {
 		font-size: 1em;
+		padding-bottom: 0px;
 	}
 	
 	/* column */
