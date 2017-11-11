@@ -159,7 +159,7 @@ function fixImage() {
 		var titles = document.getElementsByClassName("holder");
 		
 		for (var i=0; i<titles.length; i++) {
-			titles[i].style.top = "25%";
+			titles[i].style.top = "65%";
 		}
 	}else{
 		

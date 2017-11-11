@@ -102,7 +102,7 @@ body{margin:0;padding: 0;z-index: 1;}
 /* blog title */
 .header {
 	padding-top: 95px;
-	margin-left: 15px;
+	margin-left: 3%;
 }
 
 .header h1 {
@@ -315,6 +315,10 @@ body{margin:0;padding: 0;z-index: 1;}
 	.resp {
 		display: block;
 	}
+	/* header */
+	.header {
+		margin-left: 5%;
+	}
 }
 
 @media screen and (min-width: 1000px) {
@@ -327,6 +331,9 @@ body{margin:0;padding: 0;z-index: 1;}
 	.sidebar {
 		margin-right: 11.4%;
 		width: 20%;
+	}
+	.header {
+		margin-left: 11.4%;
 	}
 	
 }
