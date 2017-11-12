@@ -1,5 +1,8 @@
 /* initializer */
+var posts = 0 ;
+
 registerImages();
+showPosts(5);
 
 /* navbar collapse script */
 document.getElementById("collapsor").addEventListener("click", function() {
@@ -106,3 +109,48 @@ function showImg(img) {
 	holder.style.display = "block";
 	
 }
+
+/* blog post show a few, not all */
+function showPosts(amount) {
+	var p = document.getElementsByClassName("post");
+	
+	if(amount > 0){
+		var q = ((amount + posts) > p.length) ? (p.length + posts) : (amount + posts); 
+		for(var i = posts;i < q; i++) {
+			posts++;
+			p[i].style.display = "block";
+		}
+	}else{
+		var q = ((amount + posts) < 5) ? (posts - (amount + posts)) : (amount + posts);
+		for(var i = (posts-1);i > (q - 1); i--) {
+			posts--;
+			p[i].style.display = "none";
+		}
+	}
+	
+	if(posts == p.length){
+		//at bottom of posts
+		document.getElementById("older").classList.add("disabled");
+	}else {
+		document.getElementById("older").classList.remove("disabled");
+	}
+	
+	if(posts > 5) {
+		//at top of posts
+		document.getElementById("newer").classList.remove("disabled");
+	}else {
+		document.getElementById("newer").classList.add("disabled");
+	}
+}
+
+document.getElementById("older").addEventListener("click", function() {
+	
+	showPosts(5);
+	
+});
+
+document.getElementById("newer").addEventListener("click", function() {
+	
+	showPosts(-5);
+	
+});
