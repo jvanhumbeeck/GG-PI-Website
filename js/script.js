@@ -27,6 +27,44 @@ window.addEventListener("load", function(){
 	
 });
 
+/* keypress for carousel */
+window.addEventListener("keyup", function () {
+	
+	var code = event.keyCode;
+	
+	/* left arrow */
+	if(code == 37){
+		
+		clearTimeout(id);
+		t = false;
+		
+		carousel(-1);
+		
+	}else if(code == 39){/* right arrow */
+		
+		clearTimeout(id);
+		t = false;
+		
+		carousel(1);
+		
+	}
+	
+});
+
+/* info buttons listeners */
+document.getElementById("btnwho").addEventListener("click", function(){
+	SmoothScrollUp(document.getElementById("who"));
+});
+document.getElementById("btnwhat").addEventListener("click", function(){
+	SmoothScrollUp(document.getElementById("what"));
+});
+document.getElementById("btnwhy").addEventListener("click", function(){
+	SmoothScrollUp(document.getElementById("why"));
+});
+document.getElementById("btnmap").addEventListener("click", function(){
+	window.location.assign("http://www.blog.gg-pi.tk/#mindmap");
+});
+
 /* navbar button pressevent */
 function registerNavbarEvents() {
 	
@@ -197,6 +235,14 @@ function carousel(x) {
 			a[i].style.display = "none";
 			
 			i = 0;
+			
+			a[i].style.display = "inline-block";
+			
+		}else if((i == 0) && (x < 0)) {
+			
+			a[i].style.display = "none";
+			
+			i = 2;
 			
 			a[i].style.display = "inline-block";
 			

@@ -1,6 +1,29 @@
 /* initializer */
 registerImages();
 
+/* window onload event */
+window.addEventListener("load", function(){
+	
+	/* check if url end with #mindmap if that show more posts */
+	if(window.location.hash){
+		var hash = window.location.hash.substring(1); //Puts hash in variable, and removes the # character
+        
+		var p = document.getElementsByClassName("post");
+		
+		for(var x = 0; x < p.length; x++){
+			if(p[x].id == hash){
+				
+				var q = (x+1) - shown_posts + 1;
+				
+				showPosts(q);
+				
+				SmoothScrollUp(p[x]);
+			}
+		}
+	}
+	
+});
+
 /* navbar collapse script */
 document.getElementById("collapsor").addEventListener("click", function() {
 	
@@ -37,7 +60,7 @@ document.getElementById("back").addEventListener("click", function() {
 	
 	var section = document.getElementById("home");
 	
-	SmoothScrollUp(0);
+	SmoothScrollUp(section);
 	
 });
 
@@ -47,7 +70,7 @@ function SmoothScrollUp(section)
 	var scrollTop = document.documentElement.scrollTop;
 	
 	//ofset from top
-	var divFromTop = section	;
+	var divFromTop = section.offsetTop;
 	
 	// if(divFromTop != 0){divFromTop = offset}
 	
