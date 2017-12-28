@@ -1,0 +1,14 @@
+<?xml version = "1.0" encoding="Windows-1252" standalone="yes"?>
+<users>
+
+	<user>
+		<username>admin</username>
+		<password>wachtwoord</password>
+	</user>
+	
+	<user>
+		<username>jensvh</username>
+		<password>passwoord</password>
+	</user>
+
+</users>

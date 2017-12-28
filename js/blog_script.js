@@ -1,6 +1,9 @@
 /* initializer */
 registerImages();
 
+var t;
+var y;
+
 /* window onload event */
 window.addEventListener("load", function(){
 	
@@ -11,13 +14,19 @@ window.addEventListener("load", function(){
 		var p = document.getElementsByClassName("post");
 		
 		for(var x = 0; x < p.length; x++){
-			if(p[x].id == hash){
-				
-				var q = (x+1) - shown_posts + 1;
-				
-				showPosts(q);
-				
-				SmoothScrollUp(p[x]);
+			
+			t = p[x].getElementsByTagName("p");
+			
+			for(y = 0; y < t.length; y++){
+			
+				if(t[y].id == hash){
+					
+					var q = (x+1) - shown_posts + 1;
+					
+					showPosts(q);
+					
+					setTimeout(function() {SmoothScrollUp(document.getElementById(hash))}, 500);
+				}
 			}
 		}
 	}
@@ -71,6 +80,7 @@ function SmoothScrollUp(section)
 	
 	//ofset from top
 	var divFromTop = section.offsetTop;
+
 	
 	// if(divFromTop != 0){divFromTop = offset}
 	
@@ -200,5 +210,59 @@ document.getElementById("newer").addEventListener("click", function() {
 	
 	//when press button, hide 5 posts;
 	showPosts(-5);
+	
+});
+
+//login button in footer
+document.getElementById("login").addEventListener("click", function () {
+	
+	//show login div
+	document.getElementById("login_panel").style.display = "block";
+	
+});
+
+//close login
+var clicked = true;
+document.getElementById("login_form").addEventListener("click", function () {
+	
+	//close login panel
+	clicked = false;
+	
+});
+document.getElementById("login_panel").addEventListener("click", function () {
+	
+	//close login panel
+	if(clicked === true) {
+		document.getElementById("login_panel").style.display = "none";
+	}
+	clicked = true;
+	
+});
+
+//futur plans div, keep at side 
+window.addEventListener("scroll", function() {
+	
+	//check if width is greater then 600px
+	if(window.innerWidth > 600){
+		
+		//it is 95 + 79.438 + 89 = 263.438;
+		if(document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+			
+			var sideBar = document.getElementsByClassName("sidebar")[0];
+			sideBar.style.position = "fixed";
+			sideBar.style.top = "87px";
+			sideBar.style.right = "0";
+			
+		}else {
+			
+			var sideBar = document.getElementsByClassName("sidebar")[0];
+			sideBar.style.position = "relative";
+			sideBar.style.top = null;
+			sideBar.style.right = null;
+			
+		}
+		
+	}
+	
 	
 });

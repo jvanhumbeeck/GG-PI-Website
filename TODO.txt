@@ -1,0 +1,3 @@
+Login system, enkel voor posts.php en posts.dat.php en settings.php
+
+Admin:wachtwoord

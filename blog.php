@@ -1,3 +1,9 @@
+<?php session_start();
+			//already logged in
+			if(isset($_SESSION['logged']) && $_SESSION['logged']==true){
+				exit(header("Location: ./admin_panel.php"));
+			}
+			?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -80,33 +86,55 @@
 	  <!-- separater (for splitting the post section from the sidebar with a screen smaller then 600px) -->
 	  <hr class="separator resp">
 	  
-	  <!-- blog post example -->
-	  <div class="post">
-	    
-		<!-- separater (upper post dont need this) -->
-		<!-- <hr class="separator"> -->
-		
-	    <h2>Title</h2>
-		<p class="meta">Date, 2017 by <a href="http://www.gg-pi.tk#who">Name</a>.</p>
-		<p>Paragraph</p>
-		<img src="" alt="image"></img>
-		
-	  </div>
-	  
 	  <?php
-	  
-		$posts = simplexml_load_file("posts.dat");
 		
+		function sortByDate($posts) {
+			
+			$data = array();
+			$index = 0;
+			
+			foreach($posts as $post) {
+				
+				
+				$data[$index] = array(
+					"title" => (string)$post->title,
+					"author" => (string)$post->author,
+					"date" => (string)$post->date,
+					"image" => (string)$post->image,
+					"text" => (string)$post->text
+				);
+				
+				$index++;
+				
+			}
+			
+			
+			function sortFunction( $a, $b ) {
+				return strtotime($b["date"]) - strtotime($a["date"]);
+			}
+			usort($data, "sortFunction");
+			
+			return $data;
+			
+		}
+		
+		$posts = sortByDate(simplexml_load_file("posts.dat"));
+		
+		$index = 0;
 		foreach($posts as $post) {
 			
-			echo "<hr class=\"separator\">";
 			echo "<div class=\"post\">";
-			echo "	<h2>" . $post->title . "</h2>";
-			echo "	<p class=\"meta\">" . $post->date . " by <a href=\"http://www.gg-pi.tk#who\">" . $post->author . "</a>.</p>";
-			echo "	<p>" . $post->text . "</p>";
-			echo "	<img src=\"images/" . $post->image . "\" alt=\"" . $post->image . "\"></img>";
+			
+			if($index!=0){
+				echo "<hr class=\"separator\">";
+			}
+			echo "	<h2>" . $post["title"] . "</h2>";
+			echo "	<p class=\"meta\">" . $post["date"] . " by <a href=\"http://www.gg-pi.tk#who\">" . $post["author"] . "</a>.</p>";
+			echo "	<p>" . $post["text"] . "</p>";
+			echo "	<img src=\"images/" . $post["image"] . "\" alt=\"" . $post["image"] . "\"></img>";
 			echo "</div>";
 			echo "";
+			$index++;
 			
 		}
 	  
@@ -125,11 +153,32 @@
 	<!-- footer -->
 	<div class="footer">
 	  <!-- copyright -->
-	  <p>Copytight gg-pi.tk</p>
+	  <p>Copytight gg-pi.tk<br><br><button id="login">login</button></p>
 	  
 	  <!-- button to top -->
 	  <button id="back">&#94;</button>
 	  
+	</div>
+	
+	<!-- login panel -->
+	<div id="login_panel">
+		
+		<div id="login_form">
+
+			<h1>Login</h1>
+			
+			<?php echo (isset($_SESSION['error'])?'<span style="color:red">'.$_SESSION['error'].'</span>':null);?>
+			
+			<form action="verifier.php" method="post">
+			
+				<p>Username: <input type="text" name="user"></p>
+				<p>Password: <input type="password" name="pass"></p>
+				<br>
+				<input id="btn_login" type="submit" value="Login" name="login">
+			
+			</form>
+		</div>
+	
 	</div>
 	
 	<!-- img viewer -->
@@ -143,6 +192,19 @@
 	  
 	</div>
 	
+	<?php
+	
+		//check for errors
+		if (isset($_SESSION['error'])) {
+			echo "<style type=\"text/css\">#login_panel {
+				display: block;
+			}</style>";
+			
+			
+		}
+	
+	?>
+	
 	<!-- javascripts -->
 	<script src="js/blog_script.js"></script>
 	<!-- remove 000webhosting label -->
@@ -151,3 +213,7 @@
   </body>
 
 </html>
+<?php 
+//unset error as its only required once
+unset($_SESSION['error']);
+?>
