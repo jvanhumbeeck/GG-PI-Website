@@ -1,4 +1,28 @@
 <?php
+
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 'On');  //On or Off
+
+session_start();
+//logout
+if(isset($_GET['logout'])){unset($_SESSION['logged']);session_destroy();}
+
+
+//check login
+if(isset($_SESSION['logged']) && $_SESSION['logged']==true){
+    
+	//show page
+	
+}else{
+    exit(header("Location: ./blog.php"));
+}
+
+if(isset($_POST["q"])){
+	// there is a q
+}else {
+	exit(header("Location: ./admin_panel.php"));
+}
+
 $q = $_REQUEST["q"];
 
 $xml = simplexml_load_file("posts.dat");

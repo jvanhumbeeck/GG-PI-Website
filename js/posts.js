@@ -10,7 +10,7 @@ function showItem(item) {
                 document.getElementById("txtHint").innerHTML = this.responseText;
             }
         }
-        xmlhttp.open("GET", "tester.php?q="+item, true);
+        xmlhttp.open("GET", "printer.php?q="+item, true);
         xmlhttp.send();
     }
 	

@@ -9,47 +9,32 @@
 	
 	<body>
 		
-		<form action="" method="post">
-			
-			<textarea name="post" cols="40" rows="<?php $xml = simplexml_load_file("posts.dat");echo ((count($xml) * 10) + 3); ?>" style="width:100%;"><?php
-
-				echo $xml->asXML();
-				
-				print_r(error_get_last());
-			
-			?></textarea>
-		
-			<input type="submit" name="save" value="save">
-		
-		</form>
-		
 		<?php
-		
-			if(isset($_POST["save"])) {
-				
-				echo "koek";
-				
-				$text = $_POST["post"];
-				
-				//echo $text;
-				
-				$xml=simplexml_load_string($text);
-				
-				if ($xml === false) {
-					echo "Failed loading XML\n";
-					foreach(libxml_get_errors() as $error) {
-						echo "\t", $error->message;
-					}
-				}
-				
-				
+
+			// configuration
+			$file = 'posts.dat';
+
+			// check if form has been submitted
+			if (isset($_POST['text']))
+			{
+				// save the text contents
+				file_put_contents($file, $_POST['text']);
+
+				// redirect to form again
+				echo "File saved";
 				print_r(error_get_last());
-				
-				echo "File saved.";
-			
 			}
-		
+
+			// read the textfile
+			$text = file_get_contents($file);
+
 		?>
+		<!-- HTML form -->
+		<form action="" method="post">
+			<textarea name="text" cols="40" rows="<?php $xml = simplexml_load_file($file);echo ((count($xml) * 10) + 3); ?>" style="width: 100%;"><?php echo htmlspecialchars($text) ?></textarea>
+			<input type="submit" value="save" />
+			<input type="reset" value ="reset"/>
+		</form>
 	
 	</body>
 

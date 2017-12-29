@@ -46,6 +46,28 @@ if(isset($_SESSION['logged']) && $_SESSION['logged']==true){
 			border: 2px solid gray;
 		}
 		
+		#footer input {
+			position: relative;
+			text-align: center;
+			margin-right: 50px;
+			margin-top: 5px;
+			text-decoration: none;
+			border: none;
+			background-color: gray;
+			color: #33cd3d;
+			padding: 5px 10px;
+			border: 2px solid #5d6166;
+			font-size: 16px;
+		}
+
+		#footer input:hover {
+			background-color: #5d6166;
+			border: 2px solid gray;
+		}
+		
+		#footer {
+			text-align: center;
+		}
 		</style>
 	</head>
 	
@@ -60,8 +82,6 @@ if(isset($_SESSION['logged']) && $_SESSION['logged']==true){
 		
 		<h4 style="color:red;margin-top: 40px;">Do not press F5, it will do the same task twice. Reconnect instead.</h4>
 		<h4 style="color:red;">Do not forget to logout, it does not log you out fully automatic.</h4>
-		
-		<div id="AddPost" >
 			
 			<h1>Create a post.</h1>
 			
@@ -69,7 +89,7 @@ if(isset($_SESSION['logged']) && $_SESSION['logged']==true){
 				
 				<p>Title: <input type="text" name="title"></p>
 				<p>Author: <input type="text" name="author"></p>
-				<p>Text (You can write in html here): <textarea name="post" cols="40" rows="5" style="width:100%;"></textarea></p>
+				<p>Text (You can write in html here): <textarea name="post" cols="40" rows="5" style="width:100%;  resize: vertical;"></textarea></p>
 				<p>Image: <input type="file" name="image" accept="image/x-png,image/gif,image/jpeg"></p>
 				
 				<br>
@@ -144,8 +164,34 @@ if(isset($_SESSION['logged']) && $_SESSION['logged']==true){
 				<input type="submit" name="editPost" value="Edit Post">
 			
 			</form>
-		
 			
+			<br>
+			<br>
+			
+			<!-- separater -->
+			<hr style="margin-bottom: 5rem;border: 0;border-top: 1px solid rgba(0,0,0,.1);box-sizing: content-box;height: 0;overflow: visible;">
+			
+			<!-- footer -->
+			<div id="footer">
+				
+				<form method="post" action="viewer.php">
+				
+					<!-- button to edit index.php -->
+					<input type="submit" name="editIndex" value="Edit index.html">
+					<!-- button to edit blog.php -->
+					<input type="submit" name="editBlog" value="Edit blog.php">
+					<!-- button to edit users.xml -->
+					<input type="submit" name="editUsers" value="Edit users.xml">
+					<!-- button to edit posts.dat -->
+					<input type="submit" name="editPosts" value="Edit posts.dat">
+					<!-- button to edit admin_panel.php -->
+					<input type="submit" name="editPanel" value="Edit admin_panel.php">
+				
+				</form>
+				
+			</div>
+			
+			<br>
 			
 			<!-- php code -->
 			<?php
@@ -375,7 +421,12 @@ if(isset($_SESSION['logged']) && $_SESSION['logged']==true){
 					
 				}
 				
-				
+				//Button click to open viewer
+				if(isset($_POST["editIndex"])) {
+					
+					
+					
+				}
 				
 				function test_input($data) {
 				  $data = trim($data);
@@ -388,9 +439,7 @@ if(isset($_SESSION['logged']) && $_SESSION['logged']==true){
 			
 			<script src="js/anti-label.js"></script>
 			<script src="js/posts.js"></script>
-		
-		</div>
-		
+			<script src="js/panel_script.js"></script>
 		
 	</body>
 
