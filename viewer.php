@@ -35,18 +35,22 @@ if(isset($_POST["editIndex"])) {
 	
 }else {
 	
-	exit(header("Location: ./admin_panel.php"));
-	
+	// check if form has been submitted
+	if (isset($_POST['text']))
+	{
+		// save the text contents
+		file_put_contents($_POST["fileName"], $_POST['text']);
+		
+		$_SESSION["message"] = "File saved";
+		$_SESSION["error"] = error_get_last();
+		
+		exit(header("Location: ./admin_panel.php"));
+	}else{
+		exit(header("Location: ./admin_panel.php"));
+	}
 }
 	
-// check if form has been submitted
-if (isset($_POST['text']))
-{
-	// save the text contents
-	file_put_contents($file, $_POST['text']);
-	echo "File saved";
-	print_r(error_get_last());
-}
+
 // read the textfile
 $text = file_get_contents($file);
 
@@ -67,9 +71,12 @@ $text = file_get_contents($file);
 		
 		<!-- HTML form -->
 		<form action="" method="post">
+			<input type="hidden" name="fileName" value="<?=$file;?>">
 			<textarea name="text" cols="40" rows="<?php $xml = simplexml_load_file($file);echo ((count($xml) * 10) + 3); ?>" style="width: 100%; height: 75vh; resize: vertical;"><?php echo htmlspecialchars($text) ?></textarea>
 			<input type="submit" value="save" />
 			<input type="reset" value ="reset"/>
 		</form>
+		
+		<script src="js/anti-label.js"></script>
 	</body>
 </html>

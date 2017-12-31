@@ -255,7 +255,7 @@ body{margin:0;padding: 0;z-index: 1;}
 #holder {
 	display: none;
 	position: fixed;
-	z-index: 1;
+	z-index: 15;
 	top: 80px;
 	height: 100%;
 	width: 100%;
@@ -300,9 +300,10 @@ body{margin:0;padding: 0;z-index: 1;}
 }
 
 #back {
-	position: relative;
-	top: -165px;
-	margin-bottom: -110px;
+	position: absolute;
+	top: -25px;
+	left: 50%;
+	margin-left: -25px;
 	background-color: gray;
 	border: 2px solid #5d6166;
 	color: #33cd3d;

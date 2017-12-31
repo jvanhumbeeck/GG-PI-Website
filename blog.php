@@ -34,15 +34,15 @@
 	<div id="navbar" state="false">
 	  
 	  <!-- logo -->
-	  <a href="http://www.gg-pi.tk">
+	  <a href="http://gg-pi.tk">
 	    <img id="logo" src="assets/logo.png">
 	  </a>
 	  
 	  <!-- buttons -->
 	  <div id="buttons">
 	    <ul class="list">
-		  <li><a id="bhome" href="http://www.gg-pi.tk">Home</a></li>
-		  <li><a href="http://www.blog.gg-pi.tk" class="active">Blog</a></li>
+		  <li><a id="bhome" href="http://gg-pi.tk">Home</a></li>
+		  <li><a href="#home" class="active">Blog</a></li>
 		</ul>
 	  </div>
 	  

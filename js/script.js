@@ -8,8 +8,8 @@ registerNavbarEvents();
 
 /* onload event */
 window.addEventListener("load", function(){
-	fixButton();
-	fixImage();
+	//fixButton();
+	//fixImage();
 	
 	document.getElementById("lbutton").addEventListener("click", function() {
 		clearTimeout(id);
@@ -62,7 +62,7 @@ document.getElementById("btnwhy").addEventListener("click", function(){
 	SmoothScrollUp(document.getElementById("why"));
 });
 document.getElementById("btnmap").addEventListener("click", function(){
-	window.location.assign("http://www.blog.gg-pi.tk/#mindmap");
+	window.location.assign("http://gg-pi.tk/blog.php#mindmap");
 });
 
 /* navbar button pressevent */
@@ -104,9 +104,9 @@ document.getElementById("collapsor").addEventListener("click", function() {
 });
 
 /* resize event for navbar recollapse at pixels */
-window.addEventListener("resize", function() {
+/*window.addEventListener("resize", function() {
 	
-	/* carousel */
+	/* carousel *//*
 	fixImage();
 	fixButton();
 	
@@ -115,7 +115,7 @@ window.addEventListener("resize", function() {
 		navbar.style.height = "60px";
 		navbar.setAttribute("state", "false");
 	}
-});
+});*/
 
 /* who floater event */
 const dest_e = 0;
@@ -281,7 +281,7 @@ const offset = 3/8 * window.innerHeight;
 function SmoothScrollUp(section)
 {
 	// invisible scrolled pixels top == to top of page
-	var scrollTop = document.documentElement.scrollTop;
+	var scrollTop = (document.documentElement.scrollTop || document.body.scrollTop);
 	
 	//ofset from top
 	var divFromTop = section.offsetTop;

@@ -121,6 +121,7 @@ body{margin:0;padding: 0;z-index: 1;}
 	display: inline-block;
 	position: absolute;
 	left: 0;
+	top: 50%;
 	bottom: 0;
 	width: 100%;
 	text-align: center;
@@ -145,11 +146,11 @@ body{margin:0;padding: 0;z-index: 1;}
 	right: 0;
 	top: 0;
 	bottom: 0;
-	
 }
 
 #bholder button {
 	width: 25%;
+	height: 100%;
 	background-color: transparent;
 	border: none;
 	position: relative;
@@ -335,9 +336,10 @@ body{margin:0;padding: 0;z-index: 1;}
 }
 
 #back {
-	position: relative;
-	top: -110px;
-	margin-bottom: -110px;
+	position: absolute;
+	top: -25px;
+	left: 50%;
+	margin-left: -25px;
 	background-color: gray;
 	border: 2px solid #5d6166;
 	color: #33cd3d;
@@ -425,6 +427,9 @@ body{margin:0;padding: 0;z-index: 1;}
 	#carousel {
 		margin-top: 80px;
 	}
+	.holder {
+		top: 25%;
+	}
 	.holder h1 {
 		font-size: 2em;
 	}
@@ -444,6 +449,19 @@ body{margin:0;padding: 0;z-index: 1;}
 	.column {
 		display: block;
 		width: 32%;
+	}
+}
+
+@media screen and (max-width: 300px) {
+	.holder {
+		top: 15%;
+	}
+	.holder h1 {
+		font-size: 1em;
+	}
+	.holder p {
+		font-size: 0.5em;
+		padding-bottom: 0px;
 	}
 }
 

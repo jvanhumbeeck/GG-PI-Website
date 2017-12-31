@@ -76,7 +76,7 @@ document.getElementById("back").addEventListener("click", function() {
 function SmoothScrollUp(section)
 {
 	// invisible scrolled pixels top == to top of page
-	var scrollTop = document.documentElement.scrollTop;
+	var scrollTop = (document.documentElement.scrollTop || document.body.scrollTop);
 	
 	//ofset from top
 	var divFromTop = section.offsetTop;

@@ -8,6 +8,13 @@ if(isset($_GET['logout'])){unset($_SESSION['logged']);session_destroy();}
 if(isset($_SESSION['logged']) && $_SESSION['logged']==true){
     
 	//show page
+	if(isset($_SESSION["message"])) {
+		echo $_SESSION["message"];
+	}
+	
+	if(isset($_SESSION["error"])) {
+		print_r($_SESSION["error"]);
+	}
 	
 }else{
     exit(header("Location: ./blog.php"));
